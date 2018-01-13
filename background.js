@@ -1,6 +1,5 @@
 (function() {
 
-
 var hue;
 var c;
 var ctx;
