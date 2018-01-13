@@ -6,14 +6,8 @@ var size = 2; // size of the squares
 var canvas;
 var ctx;
 var hue;
-var counter = 1;
-var start_Point_x;
-var start_Point_y;
-var end_Point_x;
-var end_Point_y;
-var full_Length; // for the initial length of the vertices
-var current_Vertex; // This is for djikstra's algorithm. This is dynamic
-var end_Vertex; // This is static
+var current_Vertex; 
+var end_Vertex;
 
 document.addEventListener("DOMContentLoaded",init,false);
 
@@ -36,13 +30,6 @@ function init(){
 		vertices.push(p);
 	}                              // list of vertices of Djikstra
 	hue = getRandomNumber(1,359)
-	current_Vertex = getRandomNumber(0,29); // we use current_Vertex here to pick a beginning spot
-	end_Vertex = getRandomNumber(0,29); // end_Vertex
-	while(current_Vertex === end_Vertex){
-		current_Vertex = getRandomNumber(0,29);
-		end_Vertex = getRandomNumber(0,29);
-	} 
-	// should only execute if the current_Vertex and end_Vertices are equal
 	window.setInterval(draw,6.944444);
 }
 
@@ -52,7 +39,6 @@ function draw(){
 	for(var i = 0,max = vertices.length; i < max; i++){
 		ctx.beginPath();
 		ctx.arc(vertices[i].xPos, vertices[i].yPos, vertices[i].size, 0, 2 * Math.PI, false);
-		//ctx.fillStyle = 'hsl(' + vertices[i].hue + ',100%,50%)';
 		ctx.fillStyle = "red";
 		ctx.fill();
 		if (vertices[i].xPos < 0 || vertices[i].xPos > 640){
@@ -93,26 +79,11 @@ function draw(){
 			ctx.stroke();
 			
 		}
-	}
-/*
-	ctx.font = "30px Impact";
-	ctx.fillStyle = "white";
-	ctx.textAlign = "center";
-	ctx.fillText("How it feels to chew 5 Gum", canvas.width/2, canvas.height/2); 
-*/
-}
-function getRandomNumber(min, max) {
-return Math.round(Math.random() * (max - min)) + min;
-}
-				/*nextVertex : function(){
-					console.log(i, 'This is the current loop number');
-					if (vertices.length > 0){
-						distance = Math.sqrt(Math.pow(vertices[i].xPos - vertices[i-1].xPos,2)+ Math.pow(vertices[i].yPos - vertices[i-1].yPos,2));
-						}
-					else{
-					distance = 0;};		
-					}
-					*/
-
-
+	}  
+    }
+    
+    function getRandomNumber(min, max) {
+        return Math.round(Math.random() * (max - min)) + min;
+    }
+    
 })();
