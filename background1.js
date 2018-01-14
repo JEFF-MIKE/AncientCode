@@ -27,7 +27,7 @@ function init() {
 	window.setInterval(draw,15);
 	
 };
-console.log("I WORK EXCUSE ME");
+console.log("Time to draw");
 function draw(){
 	console.log('I am drawing!!');
 	ctx.clearRect(0,0,1000,800);	
