@@ -43,8 +43,6 @@
 						}
 			vertices.push(v);
 			vertices[i].vertex_count = vertices[i].connected_to.length;
-			//console.log(vertices[i].vertex_count);
-			//console.log(vertices[i].connected_to);
 			}
 		startV = getRandomNumber(0,9);
 		endV = getRandomNumber(0,9);
@@ -69,9 +67,6 @@
 					vertices[selected].connected_to.push(f);
 					}
 				}
-				 //vertices[f]["vertex_count"] = vertices[f].connected_to.length; // this should be outside this loop
-				//console.log(vertices[f].vertex_count);
-				//console.log(f,vertices[f].connected_to);
 			}
 			Distance();
 		}
@@ -129,6 +124,7 @@
 		}
 	
 	function Djikstra() {
+                // Note: this was an ancient attempt at Djikstra back when I was retarded. If you really wanna see how retarded I was, just look towards the bottom
 		var	newV, // for adding to spT.
 			sP, // only for the drawing!!!
 			cd, // current distance.
